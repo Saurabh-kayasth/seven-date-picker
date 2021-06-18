@@ -1,0 +1,12 @@
+<div style="background-color:#f9f9f9;height:100vh;display:flex;align-items: center;flex-direction: column;">
+  <div (click)="toggleCalendar()">
+    <input class="apl-input-datepicker-from ng-valid ng-not-empty ng-touched ng-dirty ng-valid-parse" type="text"
+      readonly="" [value]="displayDate" />
+  </div>
+  <div class="calendar-container">
+    <app-datepicker *ngIf="toggleDatePicker" [locale]="locale" (emitSelectedDate)="setSelectedDate($event)"
+      [canChangeNavMonthLogic]="canChangeMonthLogic" [isAvailableLogic]="isAvailableLogic"></app-datepicker>
+  </div>
+  <!-- <h4 class="title is-4">Selected day:</h4>
+  <h4 class="subtitle" *ngIf="selectedDate">{{selectedDate.format('dddd MMMM Do YYYY')}}</h4> -->
+</div>

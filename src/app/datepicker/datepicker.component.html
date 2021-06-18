@@ -1,0 +1,124 @@
+<div class="calendar">
+  <div class="calendar-nav">
+    <div class="calendar-nav-previous-month"
+      style="width:25px;display:flex;justify-content: center;align-items: center">
+      <!-- <button class="button is-text" 
+        (click) = "changeNavMonth(-1)"
+        [disabled] = "!canChangeNavMonth(-1)"
+        >
+        <i class="fa fa-chevron-left" ></i>
+      </button> -->
+      <a class="_720kb-datepicker-calendar-header is-text" style="font-size: 7px;color: #fff;"
+        (click)="changeNavMonth(-1)">
+        <!-- <i style="font-size:4px;" class="fa fa-chevron-left"></i> -->
+        <span style="font-size:12px;font-weight: bold;">(</span>
+      </a>
+    </div>
+    <div>
+      <span>{{navDate.format('MMMM')}}</span>
+      <span class="year-dropdown" (click)="toggleYearContainer()">{{navDate.format('YYYY')}}
+        <span style="font-size:12px;">&#8595;</span>
+      </span>
+    </div>
+    <div class="calendar-nav-next-month" style="width:25px;display:flex;justify-content: center;align-items: center">
+      <!-- <button class="button is-text" 
+        (click) = "changeNavMonth(1)"
+        [disabled] = "!canChangeNavMonth(1)"
+        >
+        <i class="fa fa-chevron-right" ></i>
+      </button> -->
+      <a class="_720kb-datepicker-calendar-header is-text" style="font-size: 7px;color: #fff;"
+        (click)="changeNavMonth(-1)">
+        <!-- <i style="font-size:4px;" class="fa fa-chevron-left"></i> -->
+        <span style="font-size:12px;font-weight: bold;">)</span>
+      </a>
+    </div>
+  </div>
+  <div class="_720kb-datepicker-calendar-header" *ngIf="isYear">
+    <div class="_720kb-datepicker-calendar-years-pagination" style="width:250px;color: #fff;">
+      <a class="year-number">
+        <span class="year-number">2011</span>
+      </a>
+      <a class="year-number">
+        <span class="year-number">2011</span>
+      </a>
+      <a class="year-number">
+        <span class="year-number">2011</span>
+      </a>
+      <a class="year-number">
+        <span class="year-number">2011</span>
+      </a>
+      <a class="year-number">
+        <span class="year-number">2011</span>
+      </a>
+      <a class="year-number">
+        <span class="year-number">2011</span>
+      </a>
+      <a class="year-number">
+        <span class="year-number">2011</span>
+      </a>
+      <a class="year-number">
+        <span class="year-number">2011</span>
+      </a>
+      <a class="year-number">
+        <span class="year-number">2011</span>
+      </a>
+      <a class="year-number">
+        <span class="year-number">2011</span>
+      </a>
+      <a class="year-number">
+        <span class="year-number">2011</span>
+      </a>
+      <a class="year-number">
+        <span class="year-number">2011</span>
+      </a>
+      <a class="year-number">
+        <span class="year-number">2011</span>
+      </a>
+      <a class="year-number">
+        <span class="year-number">2011</span>
+      </a>
+      <a class="year-number">
+        <span class="year-number">2011</span>
+      </a>
+      <a class="year-number">
+        <span class="year-number">2011</span>
+      </a>
+      <a class="year-number">
+        <span class="year-number">2011</span>
+      </a>
+      <a class="year-number">
+        <span class="year-number">2011</span>
+      </a>
+      <a class="year-number">
+        <span class="year-number">2011</span>
+      </a>
+      <a class="year-number">
+        <span class="year-number">2011</span>
+      </a>
+    </div>
+    <div class="_720kb-datepicker-calendar-years-pagination-pages">
+      <a href="javascript:void(0)" style="margin-right: 15px;color:#fff;">
+        <b>⟨</b>
+      </a>
+      <a href="javascript:void(0)" style="color:#fff;">
+        <b>⟩</b>
+      </a>
+    </div>
+  </div>
+  <div class="calendar-container" style="background-color:#fff;">
+    <div class="calendar-header">
+      <div class="calendar-date" *ngFor="let day of weekDaysHeaderArr">
+        {{day}}
+      </div>
+    </div>
+    <div class="calendar-body">
+
+      <div *ngFor="let day of gridArr" class="calendar-date" style="padding:3px;padding-left:0px;">
+        <button *ngIf="day.value !== 0" class="date-item" (click)="selectDay(day)">{{day.value}}</button>
+        <button *ngIf="day.value === 0" class="date-item"></button>
+      </div>
+
+    </div>
+  </div>
+</div>
