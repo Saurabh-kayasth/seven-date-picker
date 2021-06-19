@@ -1,4 +1,8 @@
-<div style="background-color:#f9f9f9;height:100vh;display:flex;align-items: center;flex-direction: column;">
+<div style="background-color:#2b2b39;height:100vh;display:flex;align-items: center;flex-direction: column;">
+  <div class="header">
+    <span class="title">SevenDatePicker</span>
+  </div>
+<br/>
   <div (click)="toggleCalendar()">
     <input class="apl-input-datepicker-from ng-valid ng-not-empty ng-touched ng-dirty ng-valid-parse" type="text"
       readonly="" [value]="displayDate" />
@@ -9,4 +13,7 @@
   </div>
   <!-- <h4 class="title is-4">Selected day:</h4>
   <h4 class="subtitle" *ngIf="selectedDate">{{selectedDate.format('dddd MMMM Do YYYY')}}</h4> -->
+  <div class="footer-container">
+    <span class="footer-title">SevenDatePicker &copy;</span>
+  </div>
 </div>
