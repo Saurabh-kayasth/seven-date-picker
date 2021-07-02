@@ -23,7 +23,7 @@ export class ParentComponent implements OnInit {
 
   setSelectedDate(date){
     this.selectedDate = date;
-    console.log(this.selectedDate.format('DD/MM/yyyy'));
+    // console.log(this.selectedDate.format('DD/MM/yyyy'));
     this.displayDate = this.selectedDate.format('DD/MM/yyyy');
   }
 

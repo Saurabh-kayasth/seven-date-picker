@@ -15,9 +15,9 @@
       </a>
     </div>
     <div>
-      <span>{{navDate.format('MMMM')}}</span>
-      <span class="year-dropdown" (click)="toggleYearContainer()">{{navDate.format('YYYY')}}
-        <span style="font-size:12px;">&#8595;</span>
+      <span style="font-size: 14px;">{{navDate.format('MMMM')}}</span>
+      <span class="year-dropdown" (click)="toggleYearContainer()">{{activeYear}}
+        <span style="font-size:14px;color: #fff;" [innerHTML]="arrow"></span>
       </span>
     </div>
     <div class="calendar-nav-next-month" style="width:25px;display:flex;justify-content: center;align-items: center">
@@ -35,75 +35,26 @@
     </div>
   </div>
   <div class="_720kb-datepicker-calendar-header" *ngIf="isYear">
-    <div class="_720kb-datepicker-calendar-years-pagination" style="width:250px;color: #fff;">
-      <a class="year-number">
-        <span class="year-number">2011</span>
-      </a>
-      <a class="year-number">
-        <span class="year-number">2011</span>
-      </a>
-      <a class="year-number">
-        <span class="year-number">2011</span>
-      </a>
-      <a class="year-number">
-        <span class="year-number">2011</span>
-      </a>
-      <a class="year-number">
-        <span class="year-number">2011</span>
-      </a>
-      <a class="year-number">
-        <span class="year-number">2011</span>
-      </a>
-      <a class="year-number">
-        <span class="year-number">2011</span>
-      </a>
-      <a class="year-number">
-        <span class="year-number">2011</span>
-      </a>
-      <a class="year-number">
-        <span class="year-number">2011</span>
-      </a>
-      <a class="year-number">
-        <span class="year-number">2011</span>
-      </a>
-      <a class="year-number">
-        <span class="year-number">2011</span>
-      </a>
-      <a class="year-number">
-        <span class="year-number">2011</span>
-      </a>
-      <a class="year-number">
-        <span class="year-number">2011</span>
-      </a>
-      <a class="year-number">
-        <span class="year-number">2011</span>
-      </a>
-      <a class="year-number">
-        <span class="year-number">2011</span>
-      </a>
-      <a class="year-number">
-        <span class="year-number">2011</span>
-      </a>
-      <a class="year-number">
-        <span class="year-number">2011</span>
-      </a>
-      <a class="year-number">
-        <span class="year-number">2011</span>
-      </a>
-      <a class="year-number">
-        <span class="year-number">2011</span>
-      </a>
-      <a class="year-number">
-        <span class="year-number">2011</span>
-      </a>
+    <div class="year-container">
+      <div class="year-data" *ngFor="let year of yearGrid">
+        <div class="year-num-container" [ngStyle]="{'background-color': year==activeYear? 'rgb(179, 219, 248)':'rgb(123, 198, 252)'}">
+          <a (click)="handleYearClick(year)">
+            <span class="year-number">{{year}}</span>
+          </a>
+        </div>
+      </div>
     </div>
-    <div class="_720kb-datepicker-calendar-years-pagination-pages">
-      <a href="javascript:void(0)" style="margin-right: 15px;color:#fff;">
-        <b>⟨</b>
-      </a>
-      <a href="javascript:void(0)" style="color:#fff;">
-        <b>⟩</b>
-      </a>
+    <div class="_720kb-datepicker-calendar-years-pagination-pages" style="display: flex;justify-content: center;">
+      <div class="year-change" (click)="changePreviousYear()">
+        <a href="javascript:void(0)" style="color:#fff;">
+          <b>⟨</b>
+        </a>
+      </div>
+      <div class="year-change" (click)="changeNextYear()">
+        <a href="javascript:void(0)" style="color:#fff;">
+          <b>⟩</b>
+        </a>
+      </div>
     </div>
   </div>
   <div class="calendar-container" style="background-color:#fff;">

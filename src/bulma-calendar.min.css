@@ -741,3 +741,7 @@
 .calbutton:hover {
     background-color: #398696;
 }
+
+.calendar-nav {
+    height: 40px;
+}

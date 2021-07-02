@@ -11,6 +11,7 @@ export class DatepickerComponent implements OnInit {
   @Input() locale: string;
   @Input() canChangeNavMonthLogic: any;
   @Input() isAvailableLogic: any;
+  arrow: string = "&#9660;";
 
   @Output() emitSelectedDate = new EventEmitter<any>();
 
@@ -19,6 +20,8 @@ export class DatepickerComponent implements OnInit {
   gridArr: Array<any> = [];
   selectedDate: any;
   isYear: boolean = false;
+  activeYear: number;
+  yearGrid: Array<any> = [];
 
   constructor() { }
 
@@ -27,6 +30,40 @@ export class DatepickerComponent implements OnInit {
     this.navDate = moment();
     this.makeHeader();
     this.makeGrid();    
+    // console.log(this.navDate.format("YYYY"));
+    this.activeYear = parseInt(this.navDate.format("YYYY"));
+    // console.log(this.activeYear);
+    this.generateYearGrid(this.activeYear);
+  }
+
+  generateYearGrid(activeYear: number){
+    const gridStartYear = activeYear - 10; 
+    const gridEndYear = activeYear + 9;
+    for(let i = gridStartYear; i <= gridEndYear;i++){
+      this.yearGrid.push(i);
+    }
+    // console.log(this.yearGrid);
+  }
+
+  handleYearClick(currentYear: number){
+    this.yearGrid = [];
+    this.activeYear = currentYear;
+    this.generateYearGrid(currentYear);
+    this.toggleYearContainer();
+    this.navDate.set("year",this.activeYear);
+    this.makeGrid();
+  }
+
+  changeNextYear(){
+    this.yearGrid = [];
+    this.activeYear += 20;
+    this.generateYearGrid(this.activeYear);
+  }
+
+  changePreviousYear(){
+    this.yearGrid = [];
+    this.activeYear -= 20;
+    this.generateYearGrid(this.activeYear);
   }
 
   changeNavMonth(num: number){
@@ -52,6 +89,7 @@ export class DatepickerComponent implements OnInit {
 
   makeGrid(){
     this.gridArr = [];
+    this.activeYear = parseInt(this.navDate.format("YYYY"));
 
     const firstDayDate = moment(this.navDate).startOf('month');
     const initialEmptyCells = firstDayDate.weekday();
@@ -96,6 +134,12 @@ export class DatepickerComponent implements OnInit {
 
   toggleYearContainer(){
     this.isYear = !this.isYear;
+    if(!this.isYear){
+      this.arrow = "&#9660";
+    }
+    else {
+      this.arrow = "&#9650";
+    }
   }
 
 }

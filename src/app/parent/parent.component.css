@@ -10,7 +10,7 @@ input {
     display: inline-block;
     text-align: start;
     appearance: textfield;
-    background-color: -internal-light-dark(rgb(255, 255, 255), rgb(59, 59, 59));
+    background-color: #fff;
     -webkit-rtl-ordering: logical;
     cursor: text;
     margin: 0em;
@@ -22,12 +22,12 @@ input {
     border-image: initial;
 }
 
-input[type="text"] {
+input{
     height: 29px;
     padding: 3px 8px;
     width: 100px;
     border: 1px solid #ddd;
-    background: #fff;
+    background-color: #fff;
     color: #585858;
     -webkit-transition: linear 0.2s;
     transition: linear 0.2s;

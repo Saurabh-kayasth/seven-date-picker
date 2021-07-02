@@ -69,21 +69,65 @@
     border-radius: 3px;
 }
 
-.year-number {
-    color: #fff;
-    font-weight: normal;
-    font-style: Lato;
-}
-
 ._720kb-datepicker-calendar-header a {
     color: #f0f0f0;
 }
 
 .year-dropdown {
     padding : 3px;
+    font-size: 14px;
+    color: #fff;
+    padding-right: 0px;
 }
 
 .year-dropdown:hover {
-    background-color: #e5e5e5;
+    background-color: rgb(180, 175, 175);
     border-radius: 3px;
+    cursor: pointer;
+}
+
+.year-change {
+    width: 33px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.year-change:hover {
+    background-color: rgb(158, 214, 255);
+    cursor: pointer;
+}
+
+.year-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+
+.year-data {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 20%;
+    flex: 0 0 20%;
+}
+
+.year-number {
+    color: #fff;
+    font-weight: normal;
+    font-style: Lato;
+    font-size: 12px;
+    margin-top: 15px;
+}
+
+.year-num-container {
+    margin-top: 5px;
+    width:50px;
+}
+
+.year-num-container:hover {
+    background-color: rgb(179, 219, 248);
 }
